@@ -109,8 +109,11 @@ class BinomialModel(object):
         return delta
     
     def delta(self):
+        '''price sensitivity to the underlying asset
+        it's  the first derivative of the option price with respect 
+        to the current value of the underlying.'''
         value_init = self.value() #Initial option value
-        #reevaluating parameters after bumping the volatility
+        #reevaluating parameters after bumping the underlying' value
         new_s = self.S*1.01
         
         NewTree = np.zeros((self.N + 1, self.N + 1)) #Square matrix used to stock the tree of the stock price
@@ -135,8 +138,10 @@ class BinomialModel(object):
         return delta
     
     def gamma(self):
+         ''' Second order derivative with respect to change in the
+        underlying spot price'''
         value_init = self.value() #Initial option value
-        #reevaluating parameters after bumping the volatility
+        #reevaluating parameters after bumping the underlying's value
         new_s = [self.S*1.01, self.S*0.99]
         NewTree = np.zeros((self.N + 1, self.N + 1)) #Square matrix used to stock the tree of the stock price
         # generating the tree for the stock price
@@ -185,8 +190,12 @@ class BinomialModel(object):
         return theta
     
     def theta(self):
+         '''price sensitivity to the time to maturity
+        The rate of change in the value of the option per one day 
+        decrease in the option time while other variables remain constant.
+        '''
         value_init = self.value() #Initial option value
-        #reevaluating parameters after bumping the volatility
+        #reevaluating parameters after bumping T
         new_t = self.T*1.01
         new_dt = new_t/self.N
         #up factor
@@ -267,28 +276,5 @@ class BinomialModel(object):
                 if self.AmOpt:
                     OptTree[ii, jj] = max(
                         OptTree[ii, jj], self.cp * (NewTree[ii, jj] - self.K))
-        vega =  (OptTree[0, 0]- value_init)/0.01 #Evaluation of the impact of the bump
+        vega =  (OptTree[0, 0]- value_init) #Evaluation of the impact of the bump
         return vega
-        
-        
-        
-BM= (BinomialModel(PutCall = "call", S=150, K= 145, T= 2, sigma = 0.2, r=0.05, AmOpt= True, N=100))
-# BM.value()
-
-# dic= {}
-# for j in range(1,50):
-#     dic[j] = ( BinomialModel(PutCall = "call", S=100, K= 110, T= 2, sigma = 0.05, r=0.05, AmOpt= False, N=j)).value()
-
-# import matplotlib.pylab as plt
-
-# lists = sorted(dic.items()) # sorted by key, return a list of tuples
-
-# x, y = zip(*lists) # unpack a list of pairs into two tuples
-
-# plt.plot(x, y)
-# plt.show()
-
-
-
-
-
