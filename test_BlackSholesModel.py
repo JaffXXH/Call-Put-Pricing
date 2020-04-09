@@ -17,88 +17,93 @@ class TestBlackSholes(unittest.TestCase):
 
     
     def test_value(self):
+        TBS = TestBlackSholes
 
-
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.value(), 1.2615662126069793e-08)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.value(), 1e-15)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.value(), 10)
         
     def test_delta(self):
+        TBS = TestBlackSholes
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.delta(), -0.499999981)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.delta(), 0)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.delta(), 0)
 
     def test_gamma(self):
+        TBS = TestBlackSholes
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.gamma(), 12615662.610100787)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.gamma(), 0)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.gamma(), 0)
         
     def test_theta(self):
-
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        TBS = TestBlackSholes
+        
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.theta(), -6307830.8050504)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.theta(), 0)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.theta(), 0)
 
     def test_rho(self):
+        TBS = TestBlackSholes
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.rho(), 0)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.rho(), 0)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.rho(), 0)
 
     def test_vega(self):
+        TBS = TestBlackSholes
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall1 ,S= TestBlackSholes.S1, K= TestBlackSholes.K1, 
-                                T= TestBlackSholes.T1, r= TestBlackSholes.r1, sigma= TestBlackSholes.sigma1)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall1 ,S= TBS.S1, K= TBS.K1, 
+                                T= TBS.T1, r= TBS.r1, sigma= TBS.sigma1)
         self.assertAlmostEqual(totest.vega(), 1.2615662610100787e-08)
         
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall2 ,S= TestBlackSholes.S2, K= TestBlackSholes.K2, 
-                                T= TestBlackSholes.T2, r= TestBlackSholes.r2, sigma= TestBlackSholes.sigma2)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall2 ,S= TBS.S2, K= TBS.K2, 
+                                T= TBS.T2, r= TBS.r2, sigma= TBS.sigma2)
         self.assertAlmostEqual(totest.vega(), 0)
 
-        totest=  BS.BlackSholes(PutCall= TestBlackSholes.PutCall3 ,S= TestBlackSholes.S3, K= TestBlackSholes.K3, 
-                                T= TestBlackSholes.T3, r= TestBlackSholes.r3, sigma= TestBlackSholes.sigma3)
+        totest=  BS.BlackSholes(PutCall= TBS.PutCall3 ,S= TBS.S3, K= TBS.K3, 
+                                T= TBS.T3, r= TBS.r3, sigma= TBS.sigma3)
         self.assertAlmostEqual(totest.vega(), 0)
 
 if __name__== '__main__':unittest.main() 
